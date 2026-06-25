@@ -1,0 +1,2337 @@
+/* --- إعدادات الخطوط والملف العامة --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-main: #0a0a0a;
+    --bg-card: #121212;
+    --bg-card-hover: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #666666;
+    --primary-red: #e51a24;
+    --primary-red-glow: rgba(229, 26, 36, 0.4);
+    --border-color: #222222;
+    --navbar-bg: rgba(18, 18, 18, 0.75);
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.text-red { color: var(--primary-red); }
+.text-muted { color: var(--text-muted); }
+
+/* --- القائمة العلوية Navbar --- */
+header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1100px;
+    z-index: 1000;
+}
+
+.navbar {
+    background: var(--navbar-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+}
+
+.logo i {
+    font-size: 24px;
+    color: var(--primary-red);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.github-icon {
+    font-size: 20px;
+    color: var(--text-secondary);
+}
+
+.github-icon:hover { color: var(--text-primary); }
+
+.btn-resume {
+    background: var(--primary-red);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px var(--primary-red-glow);
+}
+
+.btn-resume:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 26, 36, 0.6);
+}
+
+/* القائمة للهواتف */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+/* --- قسم الهيرو Hero --- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* خلفية المربعات (Grid) الظاهرة بالصور */
+.grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.availability-badge .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.hero-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.hero-subtitle .highlight {
+    color: var(--primary-red);
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.hero-description {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px var(--primary-red-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(229, 26, 36, 0.6);
+}
+
+.btn-secondary, .btn-outline {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+}
+
+.btn-secondary:hover, .btn-outline:hover {
+    background: var(--bg-card-hover);
+    border-color: #444;
+}
+
+/* حركة التمرير لأسفل */
+.scroll-down {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--text-muted), transparent);
+}
+
+/* --- العناوين والشارات العادية العامه للأقسام --- */
+.section-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-color);
+    color: var(--primary-red);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.section-title-center {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section-subtitle-center {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* --- قسم نبذة عني About --- */
+.about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.about-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.about-card p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.quote-box {
+    border-left: 3px solid var(--primary-red);
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+}
+
+/* الإحصائيات */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: #333;
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 24px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* --- قسم المهارات Skills --- */
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skills-category {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.category-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-title span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.dot-frontend { background: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
+.dot-backend { background: #10b981; box-shadow: 0 0 8px #10b981; }
+.dot-tools { background: #a855f7; box-shadow: 0 0 8px #a855f7; }
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: #444;
+}
+
+/* ألوان أيقونات التقنية */
+.text-blue { color: #61dafb; }
+.text-yellow { color: #f7df1e; }
+.text-orange { color: #f06529; }
+.text-green { color: #339933; }
+.text-purple { color: #f24e1e; }
+
+/* --- قسم مسيرتي والخبرات Experience --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--border-color);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+.timeline-dot {
+    position: absolute;
+    top: 30px;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-red);
+    z-index: 5;
+}
+.timeline-item.left .timeline-dot { right: -6px; }
+.timeline-item.right .timeline-dot { left: -6px; }
+
+.timeline-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.timeline-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+.type-exp { background: rgba(229,26,36,0.1); color: var(--primary-red); }
+.type-edu { background: rgba(59,130,246,0.1); color: #3b82f6; }
+
+.timeline-location {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.timeline-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* --- قسم الخدمات Services --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #333;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--primary-red);
+    margin-bottom: 24px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.service-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-card ul li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service-card ul li::before {
+    content: "•";
+    color: var(--primary-red);
+    font-size: 16px;
+}
+
+/* --- قسم المشاريع Projects --- */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 8px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: rgba(255,255,255,0.05);
+    color: var(--text-primary);
+    border-color: #555;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #333;
+}
+
+.project-img-wrapper {
+    position: relative;
+    height: 200px;
+    background: #1a1a1a;
+}
+
+.project-year {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-tech-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #61dafb;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-info {
+    padding: 24px;
+}
+
+.project-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 16px;
+    height: 66px;
+    overflow: hidden;
+}
+
+.live-demo-link {
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.live-demo-link:hover { color: var(--primary-red); }
+
+/* --- قسم الاتصال Contact --- */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.info-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.info-item:hover { border-color: #333; }
+
+.info-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-red);
+    font-size: 18px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text .label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.info-text .val {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.arrow-go {
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+.info-item:hover .arrow-go {
+    transform: translateX(5px);
+    color: var(--text-primary);
+}
+
+.response-note {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* فورم الارسال */
+.contact-form-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.input-group input, .input-group textarea {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #444;
+    background: rgba(0,0,0,0.4);
+}
+
+.btn-submit {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--text-primary);
+    color: var(--bg-main);
+}
+
+/* --- زر الصعود الأعلى والشاشات المتجاوبة --- */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+    background: var(--primary-red);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-red-glow);
+}
+
+/* تكييف التصميم للهواتف */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+    .nav-right { display: none; }
+    
+    .timeline-line { left: 20px; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; }
+    .timeline-item.left { text-align: left; }
+    .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot { left: 14px; }
+    .timeline-item.right { left: 0; }
+    
+    .contact-wrapper { grid-template-columns: 1fr; }
+}
+
+.hero-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* المسافة بين النص الثابت والمتحرك */
+}
+
+.dynamic-text {
+    color: var(--primary-red); /* اللون الأحمر المتوهج كما في التصميم */
+    font-weight: 600;
+    min-width: 2px; /* للحفاظ على مكان المؤشر أثناء تفريغ النص */
+}
+
+.cursor {
+    color: var(--primary-red);
+    font-weight: 300;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- إعدادات الماركي (الشريط المتحرك) --- */
+.marquee-section {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* مسافة بين الشريطين */
+    position: relative;
+}
+
+.tech-stack-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.marquee-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    /* عمل تأثير غباش وتلاشي عند الأطراف يمين وشمال بشكل احترافي */
+    mask-image: linear-gradient(to right, transparent, #fff 15%, #fff 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #fff 15%, #fff 85%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    white-space: nowrap;
+}
+
+/* تصميم الكبسولات أو العناصر داخل الشريط */
+.marquee-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.marquee-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #333;
+    color: var(--text-primary);
+}
+
+/* تفعيل الحركات واتجاهاتها */
+.dir-left .marquee-track {
+    animation: scrollLeft 25s linear infinite;
+}
+
+.dir-right .marquee-track {
+    animation: scrollRight 25s linear infinite;
+}
+
+/* إيقاف الحركة مؤقتاً عند تمرير الماوس فوق الشريط لإضافة لمسة تفاعلية */
+.marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* --- حركات الـ Keyframes السلسة العكسية --- */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* يتحرك بمقدار النصف تماماً لأننا كررنا العناصر بالـ HTML */
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/* ألوان إضافية للأيقونات الجديدة */
+.text-purple { color: #9b51e0; }
+.text-cyan { color: #02569b; } /* لون فلاتر الرسمي */
+.dot-core { background: #e51a24; box-shadow: 0 0 8px #e51a24; }
+
+/* تأكد من أن الـ tags-container تعرض العناصر بشكل متناسق في المنتصف أو على الأطراف */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center; /* لتوسيط المهارات بشكل جمالي */
+}
+
+
+/* --- تنسيقات قسم المهارات المطور --- */
+.skills-section {
+    background-color: var(--bg-main);
+    padding: 60px 0;
+}
+
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* مسافة متناسقة بين الفئات */
+}
+
+.skills-category {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* الهيدر الذي يحتوي على العنوان والخط الممتد */
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.category-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* النقاط الملونة بجانب العناوين */
+.category-title span[class^="dot-"] {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-frontend { background: #e51a24; box-shadow: 0 0 8px #e51a24; }
+.dot-backend { background: #10b981; box-shadow: 0 0 8px #10b981; }
+.dot-database { background: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
+.dot-tools { background: #a855f7; box-shadow: 0 0 8px #a855f7; }
+
+/* الخطوط الممتدة الفاخرة */
+.category-line {
+    height: 1px;
+    flex-grow: 1; /* يمتد ليملأ المساحة المتبقية بالكامل */
+    opacity: 0.2;
+}
+
+.line-frontend { background: linear-gradient(to right, #e51a24, transparent); }
+.line-backend { background: linear-gradient(to right, #10b981, transparent); }
+.line-database { background: linear-gradient(to right, #3b82f6, transparent); }
+.line-tools { background: linear-gradient(to right, #a855f7, transparent); }
+
+/* حاوية الكبسولات */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start; /* تبدأ من اليسار تماماً مثل الصورة */
+}
+
+/* تصميم الكبسولة الفريد مع تأثير التوهج الفاخر (Glow) عند الـ Hover */
+.skill-tag {
+    background: #121212;
+    border: 1px solid #222;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* تأثير التوهج والبروز المتطابق مع الصورة الأصلية */
+.skill-tag:hover {
+    background: #1a1a1a;
+    border-color: #444;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* ألوان أيقونات التقنيات الخاصة بك */
+.text-orange { color: #f06529; }
+.text-blue { color: #3b82f6; }
+.text-yellow { color: #f7df1e; }
+.text-cyan { color: #02569b; }
+.text-purple { color: #9b51e0; }
+
+
+
+/* تهيئة الحاوية الأساسية للـ 3D Effect */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: flex-start;
+    perspective: 1000px; /* ليعطي عمق للحركة ثلاثية الأبعاد */
+}
+
+/* تصميم الكبسولة التفاعلية */
+.skill-tag {
+    background: #0f0f0f;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* تحديد ألوان توهج مخصصة لكل فئة بناءً على الـ Attribute */
+.skills-category:nth-child(1) .skill-tag:hover { 
+    --glow-color: rgba(229, 26, 36, 0.15); /* أحمر للـ Frontend */
+    border-color: #e51a24;
+    color: #fff;
+}
+.skills-category:nth-child(2) .skill-tag:hover { 
+    --glow-color: rgba(16, 185, 129, 0.15); /* أخضر للـ Backend */
+    border-color: #10b981;
+    color: #fff;
+}
+.skills-category:nth-child(3) .skill-tag:hover { 
+    --glow-color: rgba(59, 130, 246, 0.15); /* أزرق للـ Database */
+    border-color: #3b82f6;
+    color: #fff;
+}
+.skills-category:nth-child(4) .skill-tag:hover { 
+    --glow-color: rgba(168, 85, 247, 0.15); /* بنفسجي للـ Tools */
+    border-color: #a855f7;
+    color: #fff;
+}
+
+/* تفعيل التوهج الناعم بنفس لون الفئة */
+.skill-tag:hover {
+    box-shadow: 0 0 25px var(--glow-color), inset 0 0 10px var(--glow-color);
+}
+
+/* ألوان الأيقونات الثابتة */
+.text-orange { color: #f06529; }
+.text-blue { color: #3b82f6; }
+.text-yellow { color: #f7df1e; }
+.text-cyan { color: #02569b; }
+.text-purple { color: #9b51e0; }
+
+
+/* --- تكبير الأيقونات وإضافة تأثير التوهج الافتراضي --- */
+.skill-tag i {
+    font-size: 20px; /* تكبير حجم الأيقونة */
+    transition: all 0.3s ease;
+}
+
+/* --- تحديد ألوان التوهج الفاخرة لكل أيقونة وتقنية بشكل مستقل --- */
+
+/* HTML5 - البرتقالي */
+.text-orange { 
+    color: #e34c26 !important;
+    filter: drop-shadow(0 0 4px rgba(227, 76, 38, 0.4));
+}
+.skill-tag:hover .text-orange {
+    filter: drop-shadow(0 0 12px rgba(227, 76, 38, 0.9));
+    transform: scale(1.15);
+}
+
+/* CSS3 / SQL Server - الأزرق */
+.text-blue { 
+    color: #264de4 !important;
+    filter: drop-shadow(0 0 4px rgba(38, 77, 228, 0.4));
+}
+.skill-tag:hover .text-blue {
+    filter: drop-shadow(0 0 12px rgba(38, 77, 228, 0.9));
+    transform: scale(1.15);
+}
+
+/* JavaScript - الأصفر */
+.text-yellow { 
+    color: #f7df1e !important;
+    filter: drop-shadow(0 0 4px rgba(247, 223, 30, 0.3));
+}
+.skill-tag:hover .text-yellow {
+    filter: drop-shadow(0 0 12px rgba(247, 223, 30, 0.9));
+    transform: scale(1.15);
+}
+
+/* Flutter / Dart - السيان (الأزرق الفاتح) */
+.text-cyan { 
+    color: #02569b !important;
+    filter: drop-shadow(0 0 4px rgba(2, 86, 155, 0.4));
+}
+.skill-tag:hover .text-cyan {
+    filter: drop-shadow(0 0 12px rgba(2, 86, 155, 0.9));
+    transform: scale(1.15);
+}
+
+/* C# (.NET) - البنفسجي */
+.text-purple { 
+    color: #512bd4 !important;
+    filter: drop-shadow(0 0 4px rgba(81, 43, 212, 0.4));
+}
+.skill-tag:hover .text-purple {
+    filter: drop-shadow(0 0 12px rgba(81, 43, 212, 0.9));
+    transform: scale(1.15);
+}
+
+/* Firebase - البرتقالي المائل للأصفر */
+.fa-fire.text-orange {
+    color: #ffca28 !important; /* لون الفايربيز الذهبي/البرتقالي */
+    filter: drop-shadow(0 0 4px rgba(255, 202, 40, 0.4));
+}
+.skill-tag:hover .fa-fire.text-orange {
+    filter: drop-shadow(0 0 12px rgba(255, 202, 40, 0.9));
+    transform: scale(1.15);
+}
+
+/* GitHub / VS Code - الأبيض أو الرمادي الفاتح */
+.fa-github, .fa-laptop-code {
+    color: #fff !important;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+}
+.skill-tag:hover .fa-github, .skill-tag:hover .fa-laptop-code {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+    transform: scale(1.15);
+}
+
+
+/* --- تعديل بسيط على الكبسولة ليتماشى مع التوهج الجديد --- */
+.skill-tag {
+    background: #0b0b0b;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 14px 28px; /* زيادة مساحة الكبسولة لتستوعب الأيقونة الكبيرة */
+    overflow: visible; /* لضمان عدم قطع التوهج الخارجي */
+}
+
+/* --- تنسيق ترويسة قسم الخبرات (ممركزة وأكبر) --- */
+.experience-header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title-large {
+    font-size: clamp(36px, 5vw, 48px); /* حجم أكبر وديناميكي حسب حجم الشاشة */
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 12px 0;
+}
+
+.section-subtitle-large {
+    color: var(--text-secondary);
+    font-size: clamp(15px, 2vw, 18px); /* خط السبتيتل أكبر وأوضح */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- أنميشن تفاعلي لكروت التايم لاين (Timeline Cards Animation) --- */
+.timeline-content {
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    padding: 28px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* حركة فيزيائية ناعمة جداً */
+    will-change: transform, box-shadow;
+}
+
+/* التفاعل عند وقوف الماوس على الكرت */
+.timeline-item:hover .timeline-content {
+    transform: translateY(-6px) scale(1.02); /* يرتفع للأعلى ويكبر قليلاً */
+    background: #121212;
+    border-color: var(--primary-red); /* تحول حدود الكرت للون الأحمر */
+    box-shadow: 0 12px 30px rgba(229, 26, 36, 0.15), 
+                inset 0 0 12px rgba(229, 26, 36, 0.05); /* توهج أحمر خارجي وداخلي ناعم */
+}
+
+/* تفتيح وتوهج النقطة المقابلة للكرت عند الـ Hover */
+.timeline-item:hover .timeline-dot {
+    background: #fff;
+    box-shadow: 0 0 15px #fff, 0 0 30px var(--primary-red);
+    transform: scale(1.3);
+}
+
+/* تعديل طفيف لسرعة انتقال العناصر الداخلية */
+.timeline-dot {
+    transition: all 0.3s ease;
+}
+
+/* --- تنسيق قسم الخدمات المطور --- */
+.services-section {
+    background-color: var(--bg-main);
+    padding: 80px 0;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* جعل الصف يحتوي على 3 كروت كحد أقصى وشكل متناسق جداً */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* شاشات الموبايل والتابلت ليكون متجاوب */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* تصميم كارت الخدمة */
+.service-card {
+    background: #090909;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- التحكم في الألوان والـ Shadow المطابق للون البوكس عند الـ Hover --- */
+
+/* كارت الأحمر */
+.service-card[data-glow="red"] { 
+    border-top: 3px solid #e51a24; 
+    --accent-color: #e51a24;
+    --shadow-glow: rgba(229, 26, 36, 0.25);
+}
+/* كارت البنفسجي للـ Backend */
+.service-card[data-glow="purple"] { 
+    border-top: 3px solid #9b51e0; 
+    --accent-color: #9b51e0;
+    --shadow-glow: rgba(155, 81, 224, 0.25);
+}
+/* كارت الأزرق للـ Database */
+.service-card[data-glow="blue"] { 
+    border-top: 3px solid #3b82f6; 
+    --accent-color: #3b82f6;
+    --shadow-glow: rgba(59, 130, 246, 0.25);
+}
+
+.service-card[data-glow="green"] { 
+    border-top: 3px solid #1cef5f; 
+    --accent-color: #1cef5f;
+    --shadow-glow: rgba(30, 208, 110, 0.25);
+}
+
+.service-card[data-glow="yellow"] { 
+    border-top: 3px solid #e8ef1c; 
+    --accent-color: #e8ef1c;
+    --shadow-glow: rgba(163, 223, 50, 0.25);
+}
+
+/* تصميم الأيقونات وتكبير حجمها */
+.service-icon {
+    width: 54px;
+    height: 54px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--accent-color);
+    margin-bottom: 28px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px var(--shadow-glow);
+    filter: drop-shadow(0 0 8px var(--shadow-glow));
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #fff;
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+/* القائمة النقطية */
+.service-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-card ul li {
+    font-size: 13.5px;
+    color: #a3a3a3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* النقاط المضيئة داخل القائمة */
+.service-card ul li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* --- أنميشن الـ Hover: شادو قوي بنفس لون البوكس وارتفاع سلس --- */
+.service-card:hover {
+    transform: translateY(-8px);
+    background: #0f0f0f;
+    border-color: rgba(255, 255, 255, 0.05);
+    /* توهج ظلي خارجي وداخلي رائع بنفس لون البوكس */
+    box-shadow: 0 20px 40px var(--shadow-glow), 
+                inset 0 0 20px rgba(255, 255, 255, 0.01);
+}
+
+/* تأثير إضافي للأيقونة عند الـ Hover */
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(255, 255, 255, 0.04);
+    filter: drop-shadow(0 0 15px var(--accent-color));
+}
+
+/* --- تنسيقات قسم المشاريع الفاخر --- */
+.projects-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-img-wrapper {
+    position: relative;
+    height: 210px;
+    background: #141414;
+    overflow: hidden;
+}
+
+/* حاوية السكرين شوت الديناميكية */
+.screenshot-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* الـ Hover على الكارت بالكامل */
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(229, 26, 36, 0.3);
+    box-shadow: 0 15px 35px rgba(229, 26, 36, 0.1);
+}
+
+/* تأثير تكبير الصورة زوم ناعم جداً عند الـ Hover */
+.project-card:hover .screenshot-img {
+    transform: scale(1.06);
+}
+
+.project-info {
+    padding: 24px;
+}
+
+.project-info h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 66px;
+    overflow: hidden;
+}
+
+.live-demo-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .live-demo-link {
+    color: var(--primary-red);
+}
+
+/* تنسيق الصورة الأساسي */
+.screenshot-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* حركة حلقة التحميل الدائرية المضيئة لحين جلب الصورة */
+.loader-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-top: 2px solid var(--primary-red);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    box-shadow: 0 0 10px rgba(229, 26, 36, 0.2);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* تنسيق الواجهة البديلة التلقائية للمشاريع */
+.fallback-card-ui {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    gap: 12px;
+    z-index: 1;
+}
+
+/* توهج خلفي ملون ناعم داخل الكارت */
+.fallback-blur-glow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--primary-red, #e51a24);
+    filter: blur(40px);
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .fallback-blur-glow {
+    opacity: 0.3; /* زيادة التوهج عند الـ Hover */
+}
+
+.fallback-icon i {
+    font-size: 36px;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.fallback-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.fallback-badge {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 12px;
+    border-radius: 100px;
+    color: #888;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .fallback-badge {
+    background: var(--primary-red, #e51a24);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 10px rgba(229, 26, 36, 0.4);
+}
+/* ضبط شبكة المشاريع وتوزيع الكروت */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-img-wrapper {
+    position: relative;
+    height: 210px;
+    background: #141414;
+    overflow: hidden;
+}
+
+/* تنسيق الصورة الثابتة */
+.screenshot-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; /* توسيط الصورة بداخل المربع */
+    background-repeat: no-repeat;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* أنميشن زوم ناعم جداً */
+}
+
+/* الأنميشن والتأثيرات عند الـ Hover */
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(229, 26, 36, 0.3); /* توهج الحدود باللون الأحمر */
+    box-shadow: 0 15px 35px rgba(229, 26, 36, 0.1); /* شادو متوهج أسفل الكارت */
+}
+
+/* إحداث زوم خفيف للصورة عند الوقوف بالماوس */
+.project-card:hover .screenshot-img {
+    transform: scale(1.06);
+}
+
+.project-info {
+    padding: 24px;
+}
+
+.project-info h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 66px;
+    overflow: hidden;
+}
+
+.live-demo-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .live-demo-link {
+    color: var(--primary-red); /* تحويل السهم للون الأحمر عند الـ Hover */
+}
+
+/* --- تنسيقات الفوتر الختامي الفاخر --- */
+.main-footer {
+    background-color: #050505; /* داكن أكثر ليعطي عمق وفصل عن بقية الصفحات */
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    padding: 60px 0 30px 0; /* تقليل البادينج السفلي */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* الجزء العلوي - الـ CTA */
+.footer-cta-box {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.crafted-by {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    font-size: 48px;
+    color: var(--primary-red);
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 15px var(--primary-red-glow));
+}
+
+.footer-name {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    /* إضاءة خلفية ناعمة جداً خلف الاسم كالصورة تماماً */
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+/* صف الزر والإيميل */
+.footer-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.btn-start-project {
+    background: var(--primary-red);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 25px var(--primary-red-glow);
+    transition: all 0.3s ease;
+}
+
+.btn-start-project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(229, 26, 36, 0.6);
+}
+
+.footer-email {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-family: monospace; /* ليعطي مظهر الكود الجمالي الظاهر بالصورة */
+}
+
+/* الفاصل العرضي */
+.footer-divider {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05) 20%, rgba(255, 255, 255, 0.05) 80%, transparent);
+    margin-bottom: 30px;
+}
+
+/* الجزء الأوسط - الروابط والسوشيال */
+.footer-middle-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #111;
+    border-color: #333;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* الجزء السفلي - الحقوق والتقنيات */
+.footer-bottom-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.built-with {
+    letter-spacing: 0.5px;
+}
+
+/* شاشات الموبايل */
+@media (max-width: 768px) {
+    .footer-middle-row, .footer-bottom-row {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    .footer-links {
+        justify-content: center;
+        gap: 16px;
+    }
+}
+
+/* تحويل الكروت لعناصر تفاعلية قابلة للضغط */
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #090909;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 100px; /* جعل الحواف دائرية بالكامل مثل الصورة تماماً */
+    padding: 20px 30px;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    /* transition سريع جداً أثناء الحركة مع الماوس وبطيء عند الخروج ليعود بمطاطية */
+    transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+/* التوهج والحدود الملونة عند الـ Hover */
+.info-item:hover {
+    border-color: #e51a24;
+    background: #0f0f0f;
+    box-shadow: 0 10px 30px rgba(229, 26, 36, 0.15);
+}
+
+.info-icon {
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e51a24;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+    transform: scale(1.1);
+    background: rgba(229, 26, 36, 0.1);
+}
+
+.arrow-go {
+    position: absolute;
+    right: 30px;
+    font-size: 14px;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+/* حركة السهم الجانبي المضيء عند الـ Hover */
+.info-item:hover .arrow-go {
+    transform: translateX(5px);
+    color: #e51a24;
+    filter: drop-shadow(0 0 5px #e51a24);
+}
+
+/* تحويل الكروت لعناصر تفاعلية قابلة للضغط مع شريط أحمر دائم */
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #090909;
+    
+    /* الشريط الأحمر الدائم (حجم 1px ولون أحمر خافت بـ Opacity لإعطاء مظهر فخم وغير مزعج) */
+    border: 1px solid rgba(229, 26, 36, 0.4); 
+    
+    border-radius: 100px; /* جعل الحواف دائرية بالكامل */
+    padding: 20px 30px;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* تأثير أنميشن مرن وسلس جداً */
+    transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    
+    /* توهج خفيف دائم حول الشريط الأحمر */
+    box-shadow: 0 4px 15px rgba(229, 26, 36, 0.03);
+}
+
+/* عند الوقوف بالماوس (Hover Effect) */
+.info-item:hover {
+    background: #0f0f0f;
+    
+    /* يصبح الشريط الأحمر مضيئاً بالكامل 100% */
+    border-color: #e51a24; 
+    
+    /* زيادة قوة التوهج (Shadow) بنفس اللون الأحمر مع حركة الماوس المغناطيسية */
+    box-shadow: 0 10px 30px rgba(229, 26, 36, 0.25);
+}
+
+.info-icon {
+    width: 46px;
+    height: 46px;
+    background: rgba(229, 26, 36, 0.05); /* جعل خلفية الأيقونة مائلة للأحمر خفيف دائماً */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e51a24;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+    transform: scale(1.1);
+    background: rgba(229, 26, 36, 0.15);
+}
+
+.arrow-go {
+    position: absolute;
+    right: 30px;
+    font-size: 14px;
+    color: #555; /* تفتيح لون السهم قليلاً ليتناسق مع الإضاءة */
+    transition: all 0.3s ease;
+}
+
+/* حركة السهم الجانبي المضيء عند الـ Hover */
+.info-item:hover .arrow-go {
+    transform: translateX(5px);
+    color: #e51a24;
+    filter: drop-shadow(0 0 5px #e51a24);
+}
+
+/* تنسيق لوحة نموذج الإرسال (البوكس الكبير) بالشريط الأحمر الدائم */
+.contact-form-panel {
+    background: #090909;
+    
+    /* الشريط الأحمر الدائم المحيط بالبوكس الكبير من الخارج */
+    border: 1px solid rgba(229, 26, 36, 0.4); 
+    
+    border-radius: 24px; /* زوايا منحنية ناعمة متناسقة مع التصميم */
+    padding: 32px;
+    position: relative;
+    
+    /* تأثير أنميشن مرن عند الوقوف بالماوس فوق البوكس */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, box-shadow;
+    
+    /* توهج خفيف دائم حول البوكس */
+    box-shadow: 0 4px 20px rgba(229, 26, 36, 0.02);
+}
+
+/* التأثيرات والتوّهج القوي عند مرور الماوس فوق البوكس الكبير (Hover) */
+.contact-form-panel:hover {
+    background: #0f0f0f;
+    
+    /* يضيء الشريط الأحمر بالكامل بنسبة 100% */
+    border-color: #e51a24;
+    
+    /* توهج ظلي (Shadow) فخم وقوي بنفس اللون الأحمر يعطي عمق رائع للنموذج */
+    box-shadow: 0 15px 40px rgba(229, 26, 36, 0.2), 
+                inset 0 0 15px rgba(229, 26, 36, 0.02);
+    
+    /* حركة بروفيشينال ترفعه للأعلى بمقدار بسيط جداً لتفاعل حيوي */
+    transform: translateY(-2px);
+}
+
+/* --- تحسين شكل المدخلات (Input Fields) من الداخل لتبدو بروفيشينال --- */
+.input-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+/* عند الوقوف داخل كارت الكتابة، يضيء الليبل الصغير باللون الأحمر */
+.contact-form-panel:hover .input-group label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input, .input-group textarea {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    padding: 16px;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 14.5px;
+    transition: all 0.3s ease;
+}
+
+/* تأثير التفاعل والتركيز عند بدء الكتابة داخل المربع (Focus) */
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(229, 26, 36, 0.6); /* حدود الحمراء ناعمة للمربع الفردي أثناء الكتابة */
+    box-shadow: 0 0 15px rgba(229, 26, 36, 0.1);
+}
+
+/* زر إرسال الرسالة السفلي وتناسقه مع الإضاءة الجديدة */
+.btn-submit {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(229, 26, 36, 0.5);
+    color: #fff;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--primary-red);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(229, 26, 36, 0.4);
+}
+
+/* --- تعديل لون الخانات لتصبح ظاهرة بوضوح فوق الخلفية السوداء --- */
+.input-group input, .input-group textarea {
+    /* درجة رمادي داكنة ومفتوحة (ليست سوداء) لتفصل الخانات عن الخلفية تماماً */
+    background: #161616; 
+    
+    /* حدود ناعمة وواضحة تحدد المربع بدقة */
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    
+    border-radius: 14px;
+    padding: 16px;
+    color: #ffffff; /* لون نص الكتابة أبيض ناصع */
+    font-family: var(--font-sans);
+    font-size: 14.5px;
+    transition: all 0.3s ease;
+}
+
+/* التفاعل الفاخر عند تمرير الماوس فوق الخانات (Hover) */
+.input-group input:hover, .input-group textarea:hover {
+    background: #1c1c1c; /* تفتيح درجة المربع قليلاً عند مرور الماوس */
+    border-color: rgba(255, 255, 255, 0.2); /* زيادة وضوح الحدود */
+}
+
+/* التأثير المتوهج عند الضغط داخل المربع لبدء الكتابة (Focus) */
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    background: #1a1a1a; 
+    border-color: #e51a24; /* تحول حدود المربع للون الأحمر المضيء أثناء الكتابة */
+    
+    /* توهج أحمر ناعم ومحدد حول المربع الذي تكتب بداخله */
+    box-shadow: 0 0 15px rgba(229, 26, 36, 0.25); 
+}
+
+/* تعديل لون نص التلميح التوضيحي (Placeholder text) ليكون واضحاً وقابلاً للقراءة */
+.input-group input::placeholder, .input-group textarea::placeholder {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* تهيئة الكبسولات للحركة المغناطيسية الواسعة */
+.skill-tag.magnetic-skill {
+    background: #0b0b0b;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    /* الترانزيشن السلس للعودة لمكانه */
+    transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    will-change: transform;
+}
+
+/* تخصيص لون التوهج والحدود لكل قسم عند الـ Hover */
+
+/* Frontend -> أحمر */
+.skills-category:nth-child(1) .skill-tag.magnetic-skill:hover {
+    border-color: #e51a24;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(229, 26, 36, 0.25);
+}
+
+/* Backend -> أخضر */
+.skills-category:nth-child(2) .skill-tag.magnetic-skill:hover {
+    border-color: #10b981;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+}
+
+/* Database -> أزرق */
+.skills-category:nth-child(3) .skill-tag.magnetic-skill:hover {
+    border-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+}
+
+/* Tools -> بنفسجي */
+.skills-category:nth-child(4) .skill-tag.magnetic-skill:hover {
+    border-color: #a855f7;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25);
+}
+
+/* --- تنسيق ترويسة قسم نبذة عني (ممركزة وأكبر) --- */
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* تعديل كروت الإحصائيات لتدعم الحركة الحرة والتوهج */
+.stat-card.magnetic-skill {
+    background: #090909;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* ترانزيشن مرن متناسق مع الجافا سكريبت */
+    transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+/* تأثير التوهج الملون الفاخر عند الـ Hover */
+.stat-card.magnetic-skill:hover {
+    background: #0f0f0f;
+    border-color: #e51a24; /* تحول الحدود للون الأحمر المضيء */
+    box-shadow: 0 12px 30px rgba(229, 26, 36, 0.2); /* توهج ظلي أحمر فخم */
+}
+
+/* تكبير وتوهج الأيقونة الداخلية للكارت عند الـ Hover */
+.stat-card.magnetic-skill .stat-icon i {
+    font-size: 24px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.stat-card.magnetic-skill:hover .stat-icon i {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* --- تعديل كروت الإحصائيات لإضافة الشريط الأحمر الثابت والدائم --- */
+.stat-card.magnetic-skill {
+    background: #090909;
+    
+    /* الشريط الأحمر الثابت والدائم (حجم 1px ولون أحمر خافت بـ Opacity متناسق) */
+    border: 1px solid rgba(229, 26, 36, 0.4); 
+    
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* تأثير أنميشن مرن وسلس جداً متناسق مع الماوس */
+    transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    
+    /* توهج ظلي خفيف دائم يعطي عمقاً للكارت فوق الخلفية السوداء */
+    box-shadow: 0 4px 15px rgba(229, 26, 36, 0.03);
+}
+
+/* التأثيرات والتوّهج القوي عند مرور الماوس فوق كارت الإحصائيات (Hover) */
+.stat-card.magnetic-skill:hover {
+    background: #0f0f0f;
+    
+    /* يصبح الشريط الأحمر مضيئاً بالكامل بنسبة 100% */
+    border-color: #e51a24; 
+    
+    /* زيادة قوة التوهج الظلي أسفل الكارت بالتزامن مع الحركة المغناطيسية */
+    box-shadow: 0 12px 30px rgba(229, 26, 36, 0.25); 
+}
+
+/* تكبير وتوهج الأيقونة الداخلية للكارت عند الـ Hover */
+.stat-card.magnetic-skill .stat-icon i {
+    font-size: 24px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.stat-card.magnetic-skill:hover .stat-icon i {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px currentColor); /* يجعل الأيقونة الملونة تشع ضوءاً فخماً */
+}
+
+/* وضعية العناصر الافتراضية قبل أن تصل إليها بالـ Scroll (تكون مخفية ونازلة لأسفل قليلاً) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* الإزاحة لأسفل */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* الوضعية الفاخرة بعد أن تظهر العناصر أثناء الـ Scroll */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* تعود لمكانها الطبيعي بصعود ناعم */
+}
+
+/* وضعية الاختفاء قبل الـ Scroll - جعلنا المسافة أعمق */
+.reveal {
+    opacity: 0;
+    transform: translateY(80px); 
+    /* زيادة الوقت إلى 1.4 ثانية مع تأثير تباطؤ احترافي (Cubic Bezier) */
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* وضعية الظهور الفخمة */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
